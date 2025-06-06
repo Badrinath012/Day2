@@ -27,3 +27,11 @@ route {
   subnet_id      = aws_subnet.dev.id
   route_table_id = aws_route_table.dev.id
 }
+//6.creation of ec2 instance
+ resource "aws_instance" "dev" {
+  ami           = "ami-00a929b66ed6e0de6"
+  instance_type = "t2.micro"
+  key_name      = "Thursday"
+  subnet_id     = aws_subnet.dev.id
+  associate_public_ip_address = true
+ }
